@@ -16,6 +16,7 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
     
     lazy var db = Firestore.firestore()
+    var favoritesData: [QueryDocumentSnapshot] = []
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -28,6 +29,13 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsMultipleSelection = true
+        
+//        db.collection("favorites").addDocument(data: ["EURUSD": true, "USDCAD": false])
+        
+        db.collection("favorites").addSnapshotListener { (snapshot, error) in
+            self.favoritesData = snapshot?.documents ?? []
+            self.tableView.reloadData()
+        }
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -68,7 +76,11 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SymbolTableViewCell", for: indexPath) as! SymbolTableViewCell
-        cell.titleLabel.text = searchController.isFiltering ? filteredSymbols[indexPath.row] : symbols[indexPath.row]
+        let symbol: String = searchController.isFiltering ? filteredSymbols[indexPath.row] : symbols[indexPath.row]
+        cell.titleLabel.text = symbol
+        cell.favoriteSwitch.isOn = favoritesData.contains { (snapshot: QueryDocumentSnapshot) -> Bool in
+            return (snapshot[symbol] as? Bool) ?? false == true
+        }
         cell.selectionStyle = .none
         let cellIsSelected = tableView.indexPathsForSelectedRows?.contains(indexPath) ?? false
         cell.accessoryType = cellIsSelected ? .checkmark : .none
