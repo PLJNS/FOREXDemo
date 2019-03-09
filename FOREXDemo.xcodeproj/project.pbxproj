@@ -17,6 +17,8 @@
 		0DD0AAB9222B11C0009A7570 /* SymbolDetailTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DD0AAB8222B11C0009A7570 /* SymbolDetailTableHeaderView.xib */; };
 		0DD0AABB222B25D6009A7570 /* CurrencyPairTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD0AABA222B25D6009A7570 /* CurrencyPairTableViewCell.swift */; };
 		0DF05B3A22341B39009D645D /* UISearchControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF05B3922341B39009D645D /* UISearchControllerExtensions.swift */; };
+		0DF05B3F2234409A009D645D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DF05B3E2234409A009D645D /* GoogleService-Info.plist */; };
+		0DF05B41223444B6009D645D /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0DF05B40223444B6009D645D /* MyScene.sks */; };
 		A9EC842769A3300CB7A376EA /* Pods_FOREXDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E692D8BED1ABF08CD282EC32 /* Pods_FOREXDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		0DD0AAB8222B11C0009A7570 /* SymbolDetailTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolDetailTableHeaderView.xib; sourceTree = "<group>"; };
 		0DD0AABA222B25D6009A7570 /* CurrencyPairTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairTableViewCell.swift; sourceTree = "<group>"; };
 		0DF05B3922341B39009D645D /* UISearchControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchControllerExtensions.swift; sourceTree = "<group>"; };
+		0DF05B3E2234409A009D645D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0DF05B40223444B6009D645D /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
 		6D7011B1D6597C7594A3CF75 /* Pods-FOREXDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOREXDemo.debug.xcconfig"; path = "Target Support Files/Pods-FOREXDemo/Pods-FOREXDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E357E2FC10CB320467926F05 /* Pods-FOREXDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOREXDemo.release.xcconfig"; path = "Target Support Files/Pods-FOREXDemo/Pods-FOREXDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E692D8BED1ABF08CD282EC32 /* Pods_FOREXDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOREXDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +85,9 @@
 				0DD0AAB6222B11AF009A7570 /* SymbolDetailTableHeaderView.swift */,
 				0DD0AAB8222B11C0009A7570 /* SymbolDetailTableHeaderView.xib */,
 				0DD0AABA222B25D6009A7570 /* CurrencyPairTableViewCell.swift */,
+				0DF05B3E2234409A009D645D /* GoogleService-Info.plist */,
 				0DF05B3922341B39009D645D /* UISearchControllerExtensions.swift */,
+				0DF05B40223444B6009D645D /* MyScene.sks */,
 			);
 			path = FOREXDemo;
 			sourceTree = "<group>";
@@ -165,7 +171,9 @@
 			files = (
 				0DD0AAAD222AD9EA009A7570 /* LaunchScreen.storyboard in Resources */,
 				0DD0AAB9222B11C0009A7570 /* SymbolDetailTableHeaderView.xib in Resources */,
+				0DF05B3F2234409A009D645D /* GoogleService-Info.plist in Resources */,
 				0DD0AAAA222AD9EA009A7570 /* Assets.xcassets in Resources */,
+				0DF05B41223444B6009D645D /* MyScene.sks in Resources */,
 				0DD0AAA8222AD9E8009A7570 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,12 +213,16 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FOREXDemo/Pods-FOREXDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

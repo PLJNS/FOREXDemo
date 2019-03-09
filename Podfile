@@ -6,5 +6,6 @@ target 'FOREXDemo' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'Firebase/Core'
   
 end
