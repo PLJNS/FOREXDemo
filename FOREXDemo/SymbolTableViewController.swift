@@ -10,18 +10,26 @@ import UIKit
 import Alamofire
 import Firebase
 
-class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, SymbolTableViewCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
     
     lazy var db = Firestore.firestore()
-    var favoritesData: [QueryDocumentSnapshot] = []
+    var favoritesData: [String: Bool] = [:]
     
     let searchController = UISearchController(searchResultsController: nil)
     
     var symbols: [String] = []
     var filteredSymbols: [String] = []
+    
+    
+    func symbolTableViewCellValueDidChange(_ cell: SymbolTableViewCell) {
+        let symbol = cell.titleLabel.text!
+        let value = cell.favoriteSwitch.isOn
+        favoritesData[symbol] = value
+        db.collection("favorites").document("currentUser").updateData(favoritesData)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +38,10 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         tableView.allowsMultipleSelection = true
         
-//        db.collection("favorites").addDocument(data: ["EURUSD": true, "USDCAD": false])
+//        db.collection("favorites").document("currentUser").updateData(["EURUSD": true])
         
-        db.collection("favorites").addSnapshotListener { (snapshot, error) in
-            self.favoritesData = snapshot?.documents ?? []
+        db.collection("favorites").document("currentUser").addSnapshotListener { (snapshot, error) in
+            self.favoritesData = snapshot?.data() as? [String: Bool] ?? [:]
             self.tableView.reloadData()
         }
         
@@ -78,9 +86,8 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "SymbolTableViewCell", for: indexPath) as! SymbolTableViewCell
         let symbol: String = searchController.isFiltering ? filteredSymbols[indexPath.row] : symbols[indexPath.row]
         cell.titleLabel.text = symbol
-        cell.favoriteSwitch.isOn = favoritesData.contains { (snapshot: QueryDocumentSnapshot) -> Bool in
-            return (snapshot[symbol] as? Bool) ?? false == true
-        }
+        cell.favoriteSwitch.isOn = favoritesData[symbol] ?? false
+        cell.delegate = self
         cell.selectionStyle = .none
         let cellIsSelected = tableView.indexPathsForSelectedRows?.contains(indexPath) ?? false
         cell.accessoryType = cellIsSelected ? .checkmark : .none

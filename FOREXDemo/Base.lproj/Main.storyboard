@@ -37,6 +37,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JvL-iD-qUi">
                                                     <rect key="frame" x="309" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="favoriteSwitchValueChanged:" destination="o9m-gS-ZMk" eventType="valueChanged" id="uNn-Hx-qiF"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
