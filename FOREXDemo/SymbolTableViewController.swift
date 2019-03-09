@@ -8,11 +8,14 @@
 
 import UIKit
 import Alamofire
+import Firebase
 
 class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
+    
+    lazy var db = Firestore.firestore()
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -32,9 +35,6 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
         searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
-        tableView.register(UITableViewCell.self,
-                           forCellReuseIdentifier: "SymbolTableViewCell")
         
         let urlString = "https://forex.1forge.com/1.0.3/symbols?api_key=scKdc5njprJwBjonYn417rDniGrve9aM"
         Alamofire.request(urlString).responseJSON { response in
@@ -67,8 +67,8 @@ class SymbolTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SymbolTableViewCell")!
-        cell.textLabel?.text = searchController.isFiltering ? filteredSymbols[indexPath.row] : symbols[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SymbolTableViewCell", for: indexPath) as! SymbolTableViewCell
+        cell.titleLabel.text = searchController.isFiltering ? filteredSymbols[indexPath.row] : symbols[indexPath.row]
         cell.selectionStyle = .none
         let cellIsSelected = tableView.indexPathsForSelectedRows?.contains(indexPath) ?? false
         cell.accessoryType = cellIsSelected ? .checkmark : .none

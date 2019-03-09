@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DB62CD4223451B600AC3474 /* SymbolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB62CD3223451B600AC3474 /* SymbolTableViewCell.swift */; };
 		0DD0AAA3222AD9E8009A7570 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD0AAA2222AD9E8009A7570 /* AppDelegate.swift */; };
 		0DD0AAA5222AD9E8009A7570 /* SymbolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD0AAA4222AD9E8009A7570 /* SymbolTableViewController.swift */; };
 		0DD0AAA8222AD9E8009A7570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD0AAA6222AD9E8009A7570 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DB62CD3223451B600AC3474 /* SymbolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolTableViewCell.swift; sourceTree = "<group>"; };
 		0DD0AA9F222AD9E8009A7570 /* FOREXDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOREXDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DD0AAA2222AD9E8009A7570 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DD0AAA4222AD9E8009A7570 /* SymbolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolTableViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				0DD0AAA2222AD9E8009A7570 /* AppDelegate.swift */,
 				0DD0AAA4222AD9E8009A7570 /* SymbolTableViewController.swift */,
 				0DD0AAB4222B093D009A7570 /* SymbolDetailViewController.swift */,
+				0DB62CD3223451B600AC3474 /* SymbolTableViewCell.swift */,
 				0DD0AAA6222AD9E8009A7570 /* Main.storyboard */,
 				0DD0AAA9222AD9EA009A7570 /* Assets.xcassets */,
 				0DD0AAAB222AD9EA009A7570 /* LaunchScreen.storyboard */,
@@ -213,7 +216,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FOREXDemo/Pods-FOREXDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -221,7 +229,12 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +254,7 @@
 				0DD0AABB222B25D6009A7570 /* CurrencyPairTableViewCell.swift in Sources */,
 				0DF05B3A22341B39009D645D /* UISearchControllerExtensions.swift in Sources */,
 				0DD0AAB5222B093D009A7570 /* SymbolDetailViewController.swift in Sources */,
+				0DB62CD4223451B600AC3474 /* SymbolTableViewCell.swift in Sources */,
 				0DD0AAB7222B11AF009A7570 /* SymbolDetailTableHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
